@@ -1,4 +1,4 @@
-package cc.co.majteam.redemption.handlers.player;
+package cc.co.majteam.redemption.player;
 
 public class Player {
 	private String name;
