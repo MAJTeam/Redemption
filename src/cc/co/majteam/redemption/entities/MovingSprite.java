@@ -6,8 +6,6 @@ public class MovingSprite extends Sprite {
 	private int speed;
 	private Orientation orientation;
 	
-	public enum Orientation {Up, Down, Left, Right};
-	
 	public MovingSprite(int x, int y, int width, int height, Color color, int speed, Orientation orientation) {
 		super(x, y, width, height, color);
 		this.speed = speed;
