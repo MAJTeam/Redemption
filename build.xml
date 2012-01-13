@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
+<!-- ====================================================================== 
+     Jan 13, 2012 01:42                                                        
+
+     Redemption    
+     A game project I decided to build to see what I could do in Java.
+                   
+     Jonathan                                                                
+     ====================================================================== -->
+<project name="Redemption" default="default">
+	<description>
+		A game project I decided to build to see what I could do in Java.
+    </description>
+
+	<property name="src" location="src"/>
+	<property name="build" location="build"/>
+	<property name="dist" location="dist"/>
+
+	<!-- ================================= 
+          target: clean              
+         ================================= -->
+	<target name="clean" description="Cleans the build directories">
+		<delete dir="${build}"/>
+		<delete dir="${dist}"/>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: init                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="init">
+		<!-- Set the timestamp -->
+		<tstamp/>
+		<!-- Create build directory -->
+		<mkdir dir="${build}"/>
+	</target>
+
+	<!-- ================================= 
+          target: compile              
+         ================================= -->
+	<target name="compile" depends="init" description="Compiles the classes in the project">
+		<mkdir dir="${build}"/>
+		<!-- Compile the java code from ${src} into ${build} -->
+		<javac srcdir="${src}" destdir="${build}">
+			<classpath>
+				<pathelement location="lib/RoujoLib.jar" />
+			</classpath>
+		</javac>
+	</target>
+
+	<!-- ================================= 
+          target: jar              
+         ================================= -->
+    <target name="jar" depends="compile" description="Builds a jar archive of the project">
+        <jar destfile="${dist}/Redemption.jar" basedir="${build}"/>
+    </target>
+
+
+	<!-- ================================= 
+          target: default              
+         ================================= -->
+	<target name="default" depends="jar" description="Default compilation"/>
+	
+</project>
