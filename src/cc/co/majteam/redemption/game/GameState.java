@@ -10,7 +10,6 @@ public class GameState {
 	private int currentStage;
 	
 	private GameState() {
-		this.currentStage = 1;
 	}
 
 	public int getCurrentStage() {
@@ -19,5 +18,9 @@ public class GameState {
 
 	public void setCurrentStage(int currentStage) {
 		this.currentStage = currentStage;
+	}
+
+	public void init() {
+		this.currentStage = 1;
 	}
 }
