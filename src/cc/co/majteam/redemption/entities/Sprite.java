@@ -1,8 +1,9 @@
 package cc.co.majteam.redemption.entities;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
 
-public class Sprite {	
+public abstract class Sprite {	
 	private int x, y, width, height;
 	private Color color;
 	
@@ -53,4 +54,6 @@ public class Sprite {
 	public void setColor(Color color) {
 		this.color = color;
 	}
+	
+	public abstract void draw(Graphics2D g2d);
 }
