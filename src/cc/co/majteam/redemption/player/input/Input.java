@@ -9,8 +9,4 @@ public enum Input{
 	Quit;
 	
 	public static final int KeyArraySize = 6;
-	
-	public int getIndex(){
-		return this.ordinal();
-	}
 }
