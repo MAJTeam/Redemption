@@ -26,6 +26,25 @@ public class GameHandler {
 		gameWindow = new GraphicWindow("Redemption", gameConfig.getWidth(),
 				gameConfig.getHeight());
 		gameWindow.setVisible(true);
+		
+		// Main game loop
+		// TODO: Make the loop check gamestate to see if it should quit
+		while(true) {
+			getInput();
+			processLogic();
+			drawScreen();
+		}
+	}
+	
+	private void getInput() {
+		
+	}
+	
+	private void processLogic() {
+		
+	}
+	
+	private void drawScreen() {
 		gameWindow.draw();
 	}
 }
