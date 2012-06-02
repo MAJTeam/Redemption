@@ -1,7 +1,6 @@
 package cc.co.majteam.redemption.shapes;
 
 import java.awt.Color;
-import java.awt.Shape;
 
 public class Drawable {
 	private Color color;
