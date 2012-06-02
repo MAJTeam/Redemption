@@ -1,11 +1,14 @@
 package cc.co.majteam.redemption.entities;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
+import java.util.Set;
+
+import cc.co.majteam.redemption.shapes.Drawable;
 
 public abstract class Sprite {	
 	private int x, y, width, height;
 	private Color color;
+	private Set<Drawable> drawables;
 	
 	public Sprite(int x, int y, int width, int height, Color color) {
 		this.x = x;
@@ -55,5 +58,15 @@ public abstract class Sprite {
 		this.color = color;
 	}
 	
-	public abstract void draw(Graphics2D g2d);
+	public void addDrawable(Drawable primitive) {
+		drawables.add(primitive);
+	}
+	
+	public void removeDrawable(Drawable primitive) {
+		drawables.remove(primitive);
+	}
+	
+	public Set<Drawable> getDrawables() {
+		return drawables;
+	}
 }
