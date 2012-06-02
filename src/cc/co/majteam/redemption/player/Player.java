@@ -3,6 +3,7 @@ package cc.co.majteam.redemption.player;
 import java.awt.Color;
 
 public class Player {
+	private int id;
 	private String name;
 	private Color color;
 	private int score;
@@ -10,6 +11,14 @@ public class Player {
 	public Player(String name) {
 		this.name = name;
 		this.score = 0;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
