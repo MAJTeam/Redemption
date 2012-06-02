@@ -6,12 +6,22 @@ import java.awt.Shape;
 public abstract class Drawable {
 	private Color color;
 	private Shape shape;
+	private Coords offset;
 
 	public Drawable(Color color, Shape shape) {
-		this.color = color;
-		this.setShape(shape);
+		this(color, shape, new Coords(0, 0));
+	}
+	
+	public Drawable(Color color, Shape shape, int x, int y) {
+		this(color, shape, new Coords(x, y));
 	}
 
+	public Drawable(Color color, Shape shape, Coords offset) {
+		this.color = color;
+		this.shape = shape;
+		this.offset = offset;
+	}
+	
 	public Color getColor() {
 		return color;
 	}
@@ -26,5 +36,13 @@ public abstract class Drawable {
 
 	public void setShape(Shape shape) {
 		this.shape = shape;
+	}
+	
+	public Coords getOffset() {
+		return offset;
+	}
+
+	public void setOffset(Coords offset) {
+		this.offset = offset;
 	}
 }
