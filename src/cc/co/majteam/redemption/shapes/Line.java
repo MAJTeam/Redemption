@@ -10,8 +10,7 @@ public class Line implements Shape {
 	}
 
 	public Line(int x1, int y1, int x2, int y2) {
-		this.point1 = new Coords(x1, y1);
-		this.point2 = new Coords(x2, y2);
+		this(new Coords(x1, y1), new Coords(x2, y2));
 	}
 
 	public Coords getPoint1() {

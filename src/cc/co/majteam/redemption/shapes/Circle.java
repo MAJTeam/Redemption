@@ -5,8 +5,7 @@ public class Circle implements Shape {
 	private int radius;
 
 	public Circle(int x, int y, int radius) {
-		this.center = new Coords(x, y);
-		this.radius = radius;
+		this(new Coords(x, y), radius);
 	}
 	
 	public Circle(Coords center, int radius) {
