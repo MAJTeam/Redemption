@@ -1,5 +1,6 @@
 package cc.co.majteam.redemption.entities;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import cc.co.majteam.redemption.graphics.Coords;
@@ -15,6 +16,7 @@ public abstract class Sprite {
 
 	public Sprite(Coords center) {
 		this.setCenter(center);
+		this.drawables = new HashSet<Drawable>();
 	}
 
 	public Coords getCenter() {
@@ -25,12 +27,12 @@ public abstract class Sprite {
 		this.center = center;
 	}
 
-	public void addDrawable(Drawable primitive) {
-		drawables.add(primitive);
+	public void addDrawable(Drawable drawable) {
+		drawables.add(drawable);
 	}
 
-	public void removeDrawable(Drawable primitive) {
-		drawables.remove(primitive);
+	public void removeDrawable(Drawable drawable) {
+		drawables.remove(drawable);
 	}
 
 	public Set<Drawable> getDrawables() {
