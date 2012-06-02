@@ -2,21 +2,26 @@ package cc.co.majteam.redemption.player;
 
 import java.awt.Color;
 
+import cc.co.majteam.redemption.player.input.KeyDefaults;
+
 public enum PlayerDefaults {
-	Player1("Player 1", Color.CYAN),
+	Player1("Player 1", Color.CYAN, KeyDefaults.Arrows),
 
-	Player2("Player 2", Color.RED),
-
-	Player3("Player 3", Color.YELLOW),
+	Player2("Player 2", Color.RED, KeyDefaults.WASD);
 	
-	Player4("Player 4", Color.GREEN);
+	// TODO: Add players once more input methods can exist.
+	//, Player3("Player 3", Color.YELLOW),
+	
+	//Player4("Player 4", Color.GREEN);
 
 	private final String name;
 	private final Color color;
+	private final KeyDefaults keyDefaults;
 
-	private PlayerDefaults(String name, Color color) {
+	private PlayerDefaults(String name, Color color, KeyDefaults keyDefaults) {
 		this.name = name;
 		this.color = color;
+		this.keyDefaults = keyDefaults;
 	}
 
 	public String getName() {
@@ -26,6 +31,10 @@ public enum PlayerDefaults {
 	public Color getColor() {
 		return color;
 	}
+	
+	public KeyDefaults getKeyDefaults() {
+		return keyDefaults;
+	}
 
 	public static PlayerDefaults getPlayerDefault(int playerNb) {
 		switch (playerNb) {
@@ -33,10 +42,6 @@ public enum PlayerDefaults {
 			return Player1;
 		case 2:
 			return Player2;
-		case 3:
-			return Player3;
-		case 4:
-			return Player4;
 		default:
 			return Player1;
 		}
