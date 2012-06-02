@@ -1,4 +1,4 @@
-package cc.co.majteam.redemption.graphics.shapes;
+package cc.co.majteam.redemption.graphics;
 
 public class Coords {
 

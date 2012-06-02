@@ -2,8 +2,8 @@ package cc.co.majteam.redemption.entities;
 
 import java.util.Set;
 
-import cc.co.majteam.redemption.graphics.shapes.Coords;
-import cc.co.majteam.redemption.graphics.shapes.Drawable;
+import cc.co.majteam.redemption.graphics.Coords;
+import cc.co.majteam.redemption.graphics.Drawable;
 
 public abstract class Sprite {
 	private Coords center;

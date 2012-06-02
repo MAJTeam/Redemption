@@ -1,5 +1,7 @@
 package cc.co.majteam.redemption.graphics.shapes;
 
+import cc.co.majteam.redemption.graphics.Coords;
+
 public class Line implements Shape {
 
 	private Coords point1, point2;

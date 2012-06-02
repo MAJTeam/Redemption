@@ -2,9 +2,9 @@ package cc.co.majteam.redemption.entities;
 
 import java.awt.Color;
 
+import cc.co.majteam.redemption.graphics.Coords;
+import cc.co.majteam.redemption.graphics.Drawable;
 import cc.co.majteam.redemption.graphics.shapes.Circle;
-import cc.co.majteam.redemption.graphics.shapes.Coords;
-import cc.co.majteam.redemption.graphics.shapes.Drawable;
 import cc.co.majteam.redemption.player.PlayerDefaults;
 
 public class PlayerSprite extends MovingSprite {
