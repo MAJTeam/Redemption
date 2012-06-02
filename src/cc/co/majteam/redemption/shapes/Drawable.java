@@ -3,7 +3,7 @@ package cc.co.majteam.redemption.shapes;
 import java.awt.Color;
 import java.awt.Shape;
 
-public abstract class Drawable {
+public class Drawable {
 	private Color color;
 	private Shape shape;
 	private Coords offset;
