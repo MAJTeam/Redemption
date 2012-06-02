@@ -1,7 +1,5 @@
 package cc.co.majteam.redemption.entities;
 
-import java.awt.Graphics2D;
-
 import cc.co.majteam.redemption.shapes.Coords;
 
 public abstract class MovingSprite extends Sprite {
@@ -29,6 +27,4 @@ public abstract class MovingSprite extends Sprite {
 	public void setOrientation(Orientation orientation) {
 		this.orientation = orientation;
 	}
-
-	public abstract void draw(Graphics2D g2d);
 }
