@@ -1,4 +1,4 @@
-package cc.co.majteam.redemption.shapes;
+package cc.co.majteam.redemption.graphics.shapes;
 
 import java.awt.Color;
 

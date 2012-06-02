@@ -1,6 +1,6 @@
 package cc.co.majteam.redemption.entities;
 
-import cc.co.majteam.redemption.shapes.Coords;
+import cc.co.majteam.redemption.graphics.shapes.Coords;
 
 public abstract class MovingSprite extends Sprite {
 	private int speed;
