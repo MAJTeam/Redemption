@@ -6,15 +6,21 @@ import java.util.Set;
 import cc.co.majteam.redemption.shapes.Drawable;
 
 public abstract class Sprite {	
-	private int x, y, width, height;
+	private int x, y;
 	private Color color;
 	private Set<Drawable> drawables;
 	
-	public Sprite(int x, int y, int width, int height, Color color) {
+	public Sprite(Color color, int x, int y) {
+		this.color = color;
 		this.x = x;
 		this.y = y;
-		this.width = width;
-		this.height = height;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public void setColor(Color color) {
 		this.color = color;
 	}
 
@@ -32,30 +38,6 @@ public abstract class Sprite {
 
 	public void setY(int y) {
 		this.y = y;
-	}
-
-	public int getWidth() {
-		return width;
-	}
-
-	public void setWidth(int width) {
-		this.width = width;
-	}
-
-	public int getHeight() {
-		return height;
-	}
-
-	public void setHeight(int height) {
-		this.height = height;
-	}
-
-	public Color getColor() {
-		return color;
-	}
-
-	public void setColor(Color color) {
-		this.color = color;
 	}
 	
 	public void addDrawable(Drawable primitive) {
