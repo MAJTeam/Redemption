@@ -2,11 +2,12 @@ package cc.co.majteam.redemption.graphics.shapes;
 
 import cc.co.majteam.redemption.graphics.Coords;
 
-public class Line implements Shape {
+public class Line extends Shape {
 
 	private Coords point1, point2;
 
 	public Line(Coords point1, Coords point2) {
+		super(ShapeType.Line);
 		this.point1 = point1;
 		this.point2 = point2;
 	}
