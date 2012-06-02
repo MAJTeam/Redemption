@@ -3,17 +3,29 @@ package cc.co.majteam.redemption.entities;
 import java.awt.Color;
 import java.util.Set;
 
+import cc.co.majteam.redemption.shapes.Coords;
 import cc.co.majteam.redemption.shapes.Drawable;
 
 public abstract class Sprite {	
-	private int x, y;
+	private Coords center;
 	private Color color;
 	private Set<Drawable> drawables;
 	
 	public Sprite(Color color, int x, int y) {
+		this(color, new Coords(x, y));
+	}
+	
+	public Sprite(Color color, Coords center) {
 		this.color = color;
-		this.x = x;
-		this.y = y;
+		this.setCenter(center);
+	}
+
+	public Coords getCenter() {
+		return center;
+	}
+
+	public void setCenter(Coords center) {
+		this.center = center;
 	}
 
 	public Color getColor() {
@@ -22,22 +34,6 @@ public abstract class Sprite {
 
 	public void setColor(Color color) {
 		this.color = color;
-	}
-
-	public int getX() {
-		return x;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
 	}
 	
 	public void addDrawable(Drawable primitive) {
