@@ -1,10 +1,10 @@
 package cc.co.majteam.redemption.shapes;
 
-public class Point implements Shape {
+public class Coords {
 
 	private int x, y;
 
-	public Point(int x, int y) {
+	public Coords(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}

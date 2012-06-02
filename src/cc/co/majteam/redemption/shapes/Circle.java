@@ -1,24 +1,24 @@
 package cc.co.majteam.redemption.shapes;
 
 public class Circle implements Shape {
-	private Point center;
+	private Coords center;
 	private int radius;
 
 	public Circle(int x, int y, int radius) {
-		this.center = new Point(x, y);
+		this.center = new Coords(x, y);
 		this.radius = radius;
 	}
 	
-	public Circle(Point center, int radius) {
+	public Circle(Coords center, int radius) {
 		this.center = center;
 		this.radius = radius;
 	}
 
-	public Point getCenter() {
+	public Coords getCenter() {
 		return center;
 	}
 
-	public void setCenter(Point center) {
+	public void setCenter(Coords center) {
 		this.center = center;
 	}
 
