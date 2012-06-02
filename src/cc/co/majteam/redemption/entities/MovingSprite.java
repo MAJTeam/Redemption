@@ -1,15 +1,15 @@
 package cc.co.majteam.redemption.entities;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
+
+import cc.co.majteam.redemption.shapes.Coords;
 
 public abstract class MovingSprite extends Sprite {
 	private int speed;
 	private Orientation orientation;
 
-	public MovingSprite(int x, int y, int width, int height, Color color,
-			int speed, Orientation orientation) {
-		super(x, y, width, height, color);
+	public MovingSprite(Coords center, int speed, Orientation orientation) {
+		super(center);
 		this.speed = speed;
 		this.orientation = orientation;
 	}
