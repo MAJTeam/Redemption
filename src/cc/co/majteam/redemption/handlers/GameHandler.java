@@ -1,6 +1,5 @@
 package cc.co.majteam.redemption.handlers;
 
-import roujo.lib.gui.windows.GraphicWindow;
 import cc.co.majteam.redemption.game.GameConfig;
 import cc.co.majteam.redemption.game.GameState;
 
@@ -13,19 +12,19 @@ public class GameHandler {
 
 	private GameState gameState;
 	private GameConfig gameConfig;
-	private GraphicWindow gameWindow;
+	
+	private GraphicsHandler graphicsHandler;
 
 	private GameHandler() {
 		this.gameState = GameState.getInstance();
 		this.gameConfig = GameConfig.getInstance();
+		this.graphicsHandler = GraphicsHandler.getInstance();
 	}
 
 	public void start() {
 		gameConfig.load();
 		gameState.init();
-		gameWindow = new GraphicWindow("Redemption", gameConfig.getWidth(),
-				gameConfig.getHeight());
-		gameWindow.setVisible(true);
+		graphicsHandler.init();		
 		
 		// Main game loop
 		// TODO: Make the loop check gamestate to see if it should quit
@@ -45,6 +44,6 @@ public class GameHandler {
 	}
 	
 	private void drawScreen() {
-		gameWindow.draw();
+		graphicsHandler.draw();
 	}
 }
