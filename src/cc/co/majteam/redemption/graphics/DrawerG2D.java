@@ -1,6 +1,7 @@
 package cc.co.majteam.redemption.graphics;
 
 import java.awt.Graphics2D;
+import java.util.Set;
 
 import roujo.lib.gui.windows.GraphicWindow;
 import cc.co.majteam.redemption.graphics.shapes.Circle;
@@ -34,14 +35,23 @@ public class DrawerG2D implements Drawer {
 			Circle circle = (Circle) shape;
 			g2d.drawOval(center.getX(), center.getY(), circle.getRadius() * 2,
 					circle.getRadius() * 2);
+			break;
 		case Line:
 			Line line = (Line) shape;
 			g2d.drawLine(center.getX() + line.getPoint1().getX(), center.getY()
 					+ line.getPoint1().getY(), center.getX()
 					+ line.getPoint2().getX(), center.getY()
 					+ line.getPoint2().getY());
+			break;
 		default:
 			System.err.println("Invalid shape in drawable! Skipped.");
+		}
+	}
+	
+	@Override
+	public void draw(Set<Drawable> drawables, Coords origin) {
+		for(Drawable d : drawables) {
+			draw(d, origin);
 		}
 	}
 

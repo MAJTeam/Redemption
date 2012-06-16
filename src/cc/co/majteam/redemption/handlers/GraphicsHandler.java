@@ -24,10 +24,14 @@ public class GraphicsHandler {
 		gameWindow = new GraphicWindow("Redemption", gameConfig.getWidth(),
 				gameConfig.getHeight());
 		gameWindow.setVisible(true);
-		drawer = new DrawerG2D();		
+		drawer = new DrawerG2D();
 	}
 
-	public void draw() {
-		// TODO: Add calls to drawer.draw();
+	public Drawer getDrawer() {
+		return drawer;
+	}
+	
+	public GraphicWindow getGameWindow() {
+		return gameWindow;
 	}
 }

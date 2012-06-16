@@ -8,8 +8,10 @@ public class Player {
 	private Color color;
 	private int score;
 	
-	public Player(String name) {
-		this.name = name;
+	public Player(int id, PlayerDefaults defaults) {
+		this.id = id;
+		this.name = defaults.getName();
+		this.color = defaults.getColor();
 		this.score = 0;
 	}
 
