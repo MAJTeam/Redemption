@@ -3,7 +3,7 @@ package cc.co.majteam.redemption.handlers;
 import java.util.HashSet;
 import java.util.Set;
 
-import cc.co.majteam.redemption.entities.PlayerSprite;
+import cc.co.majteam.redemption.graphics.sprites.PlayerSprite;
 import cc.co.majteam.redemption.player.PlayerDefaults;
 
 public class EntityHandler {

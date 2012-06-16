@@ -2,10 +2,10 @@ package cc.co.majteam.redemption.handlers;
 
 import java.util.Set;
 
-import cc.co.majteam.redemption.entities.PlayerSprite;
 import cc.co.majteam.redemption.game.GameConfig;
 import cc.co.majteam.redemption.game.GameState;
 import cc.co.majteam.redemption.graphics.Drawer;
+import cc.co.majteam.redemption.graphics.sprites.PlayerSprite;
 
 public class GameHandler {
 	private static GameHandler instance = new GameHandler();
