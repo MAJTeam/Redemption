@@ -34,4 +34,8 @@ public class GraphicsHandler {
 	public GraphicWindow getGameWindow() {
 		return gameWindow;
 	}
+
+	public void cleanup() {
+		gameWindow.dispose();		
+	}
 }
