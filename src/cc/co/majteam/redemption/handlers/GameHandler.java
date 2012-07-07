@@ -1,5 +1,6 @@
 package cc.co.majteam.redemption.handlers;
 
+import java.awt.event.KeyEvent;
 import java.util.Set;
 
 import cc.co.majteam.redemption.game.GameConfig;
@@ -22,6 +23,8 @@ public class GameHandler {
 	private EntityHandler entityHandler;
 	
 	private KeyboardInput keyboard;
+	
+	private boolean isRunning;
 
 	private GameHandler() {
 		this.gameState = GameState.getInstance();
@@ -39,16 +42,24 @@ public class GameHandler {
 		entityHandler.init();
 		
 		// Main game loop
-		// TODO: Make the loop check gamestate to see if it should quit
-		while(true) {
-			getInput();
+		isRunning = true;
+		while(isRunning) {
+			processInput();
 			processLogic();
 			drawScreen();
 		}
+		
+		cleanup();
 	}
 	
-	private void getInput() {
+	private void processInput() {		
+		// Get the latest keyboard state
+		keyboard.poll();
 		
+		// Check if the user wants to quit
+		if(keyboard.keyDownOnce(KeyEvent.VK_ESCAPE)) {
+			isRunning = false;
+		}
 	}
 	
 	private void processLogic() {
@@ -66,5 +77,9 @@ public class GameHandler {
 		}
 		
 		drawer.commit();
+	}
+	
+	private void cleanup() {
+		graphicsHandler.cleanup();
 	}
 }

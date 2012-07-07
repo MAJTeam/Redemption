@@ -1,5 +1,7 @@
 package cc.co.majteam.redemption.handlers;
 
+import javax.swing.JFrame;
+
 import roujo.lib.gui.windows.GraphicWindow;
 import cc.co.majteam.redemption.game.GameConfig;
 import cc.co.majteam.redemption.graphics.Drawer;
@@ -23,6 +25,7 @@ public class GraphicsHandler {
 		gameConfig = GameConfig.getInstance();
 		gameWindow = new GraphicWindow("Redemption", gameConfig.getWidth(),
 				gameConfig.getHeight());
+		gameWindow.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		gameWindow.setVisible(true);
 		drawer = new DrawerG2D();
 	}
