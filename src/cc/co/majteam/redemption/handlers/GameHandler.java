@@ -6,6 +6,7 @@ import cc.co.majteam.redemption.game.GameConfig;
 import cc.co.majteam.redemption.game.GameState;
 import cc.co.majteam.redemption.graphics.Drawer;
 import cc.co.majteam.redemption.graphics.sprites.PlayerSprite;
+import cc.co.majteam.redemption.player.input.KeyboardInput;
 
 public class GameHandler {
 	private static GameHandler instance = new GameHandler();
@@ -19,18 +20,22 @@ public class GameHandler {
 	
 	private GraphicsHandler graphicsHandler;
 	private EntityHandler entityHandler;
+	
+	private KeyboardInput keyboard;
 
 	private GameHandler() {
 		this.gameState = GameState.getInstance();
 		this.gameConfig = GameConfig.getInstance();
 		this.graphicsHandler = GraphicsHandler.getInstance();
 		this.entityHandler = EntityHandler.getInstance();
+		this.keyboard = new KeyboardInput();
 	}
 
 	public void start() {
 		gameConfig.load();
 		gameState.init();
 		graphicsHandler.init();
+		graphicsHandler.getGameWindow().addKeyListener(keyboard);
 		entityHandler.init();
 		
 		// Main game loop
