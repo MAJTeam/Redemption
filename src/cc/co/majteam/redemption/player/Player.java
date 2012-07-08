@@ -3,6 +3,7 @@ package cc.co.majteam.redemption.player;
 import java.awt.Color;
 
 import cc.co.majteam.redemption.graphics.sprites.PlayerSprite;
+import cc.co.majteam.redemption.player.input.KeyConfig;
 
 public class Player {
 	private int id;
@@ -10,6 +11,7 @@ public class Player {
 	private Color color;
 	private int score;
 	private PlayerSprite sprite;
+	private KeyConfig keyConfig;
 	
 	public Player(int id, PlayerDefaults defaults) {
 		this.id = id;
@@ -17,6 +19,7 @@ public class Player {
 		this.color = defaults.getColor();
 		this.score = 0;
 		this.sprite = new PlayerSprite(defaults);
+		this.keyConfig = defaults.getKeyDefaults().getKeyConfig();
 	}
 
 	public int getId() {
@@ -53,5 +56,9 @@ public class Player {
 
 	public PlayerSprite getSprite() {
 		return sprite;
+	}
+	
+	public KeyConfig getKeyConfig() {
+		return keyConfig;
 	}
 }
