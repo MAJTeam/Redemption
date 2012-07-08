@@ -5,10 +5,12 @@ import java.util.Set;
 
 import cc.co.majteam.redemption.game.GameConfig;
 import cc.co.majteam.redemption.game.GameState;
+import cc.co.majteam.redemption.graphics.Coords;
 import cc.co.majteam.redemption.graphics.Drawer;
-import cc.co.majteam.redemption.graphics.sprites.PlayerSprite;
 import cc.co.majteam.redemption.player.Player;
 import cc.co.majteam.redemption.player.PlayerDefaults;
+import cc.co.majteam.redemption.player.input.Input;
+import cc.co.majteam.redemption.player.input.KeyConfig;
 import cc.co.majteam.redemption.player.input.KeyboardInput;
 
 public class GameHandler {
@@ -64,6 +66,27 @@ public class GameHandler {
 		// Check if the user wants to quit
 		if(keyboard.keyDownOnce(KeyEvent.VK_ESCAPE)) {
 			isRunning = false;
+			// Yes, this is short-circuiting the whole method.
+			// It's cleaner this way. =P
+			return;
+		}
+		
+		// Check if any player is trying to move
+		for(Player p : entityHandler.getPlayers()) {
+			Coords coords = p.getCoords();
+			KeyConfig k = p.getKeyConfig();
+			if(keyboard.keyDown(k.getKey(Input.Up))) {
+				coords.setY(coords.getY() - p.getSpeed());
+			}
+			if(keyboard.keyDown(k.getKey(Input.Down))) {
+				coords.setY(coords.getY() + p.getSpeed());
+			}
+			if(keyboard.keyDown(k.getKey(Input.Left))) {
+				coords.setX(coords.getX() - p.getSpeed());
+			}
+			if(keyboard.keyDown(k.getKey(Input.Right))) {
+				coords.setX(coords.getX() + p.getSpeed());
+			}
 		}
 	}
 	
