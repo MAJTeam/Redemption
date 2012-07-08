@@ -1,6 +1,7 @@
 package cc.co.majteam.redemption.handlers;
 
 import java.awt.event.KeyEvent;
+import java.util.HashSet;
 import java.util.Set;
 
 import cc.co.majteam.redemption.game.GameConfig;
@@ -81,6 +82,9 @@ public class GameHandler {
 		// Check if any player is trying to do something
 		for (Player p : entityHandler.getPlayers()) {
 			KeyConfig k = p.getKeyConfig();
+			if (keyboard.keyDown(k.getKey(Input.Up))) {
+				p.getSprite().move(Direction.Up);
+			}
 			if (keyboard.keyDown(k.getKey(Input.Down))) {
 				p.getSprite().move(Direction.Down);
 			}
@@ -90,9 +94,6 @@ public class GameHandler {
 			if (keyboard.keyDown(k.getKey(Input.Right))) {
 				p.getSprite().move(Direction.Right);
 			}
-			if (keyboard.keyDown(k.getKey(Input.Up))) {
-				p.getSprite().move(Direction.Up);
-			}
 			if (keyboard.keyDownOnce(k.getKey(Input.Fire))) {
 				entityHandler.addBullets(p.fire());
 			}
@@ -100,10 +101,21 @@ public class GameHandler {
 	}
 
 	private void processLogic() {
-		// Move the bullets
-		for (Bullet b : entityHandler.getBullets()) {
-			
+		// Keep the window corners in scope for easy access
+		Coords tlCorner = new Coords(0, 0);
+		Coords lrCorner = new Coords(gameConfig.getWidth(),
+				gameConfig.getHeight());
+
+		// Move the bullets, destroying those that have wandered off-screen
+		Set<Bullet> bullets = entityHandler.getBullets();
+		Set<Bullet> removedBullets = new HashSet<Bullet>();
+		for (Bullet b : bullets) {
+			b.move();
+			if (!b.getCenter().isBetween(tlCorner, lrCorner)) {
+				removedBullets.add(b);
+			}
 		}
+		bullets.removeAll(removedBullets);
 	}
 
 	private void drawScreen() {
@@ -114,9 +126,9 @@ public class GameHandler {
 		for (Player p : entityHandler.getPlayers()) {
 			drawer.draw(p.getSprite().getDrawables(), p.getSprite().getCenter());
 		}
-		
+
 		// Draw all bullets
-		for(Bullet b : entityHandler.getBullets()) {
+		for (Bullet b : entityHandler.getBullets()) {
 			drawer.draw(b.getDrawables(), b.getCenter());
 		}
 
