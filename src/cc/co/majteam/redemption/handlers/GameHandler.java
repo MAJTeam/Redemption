@@ -95,23 +95,9 @@ public class GameHandler {
 			if (keyboard.keyDown(k.getKey(Input.Right))) {
 				x += 1;
 			}
-			if (x == 0 && y == 0) {
-			} else if (x == 0 && y < 0) {
-				p.getSprite().move(Direction.North);
-			} else if (x > 0 && y < 0) {
-				p.getSprite().move(Direction.NorthEast);
-			} else if (x > 0 && y == 0) {
-				p.getSprite().move(Direction.East);
-			} else if (x > 0 && y > 0) {
-				p.getSprite().move(Direction.SouthEast);
-			} else if (x == 0 && y > 0) {
-			    p.getSprite().move(Direction.South);
-			} else if (x < 0 && y > 0) {
-				p.getSprite().move(Direction.SouthWest);
-			} else if (x < 0 && y == 0) {
-				p.getSprite().move(Direction.West);
-			} else if (x < 0 && y < 0) {
-				p.getSprite().move(Direction.NorthWest);
+			Direction dir = Direction.get(x, y);
+			if (dir != Direction.None) {
+				p.getSprite().move(dir);
 			}
 			if (keyboard.keyDownOnce(k.getKey(Input.Fire))) {
 				entityHandler.addBullets(p.fire());
