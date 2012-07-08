@@ -104,7 +104,7 @@ public class Player {
 			c.setY(c.getY() - 10);
 			break;
 		}
-		bullets.add(new Bullet(c, 10, sprite.getOrientation()));
+		bullets.add(new Bullet(this, c, 10, sprite.getOrientation()));
 		return bullets;
 	}
 }
