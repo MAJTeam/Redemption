@@ -4,9 +4,9 @@ import cc.co.majteam.redemption.graphics.sprites.Direction;
 
 public class Coords {
 	
-	private int x, y;
+	private double x, y;
 
-	public Coords(int x, int y) {
+	public Coords(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}
@@ -16,19 +16,19 @@ public class Coords {
 		this.y = coords.getY();
 	}
 
-	public int getX() {
+	public double getX() {
 		return x;
 	}
 
-	public void setX(int x) {
+	public void setX(double x) {
 		this.x = x;
 	}
 
-	public int getY() {
+	public double getY() {
 		return y;
 	}
 
-	public void setY(int y) {
+	public void setY(double y) {
 		this.y = y;
 	}
 	
@@ -36,7 +36,7 @@ public class Coords {
 		return isBetween(p1.x, p1.y, p2.x, p2.y);
 	}
 	
-	public boolean isBetween(int x1, int y1, int x2, int y2) {
+	public boolean isBetween(double x1, double y1, double x2, double y2) {
 		return x > x1 && y > y1 && x < x2 && y < y2;
 	}
 	

@@ -33,24 +33,24 @@ public class DrawerG2D implements Drawer {
 		switch (shape.getType()) {
 		case Circle:
 			Circle circle = (Circle) shape;
-			g2d.drawOval(center.getX(), center.getY(), circle.getRadius() * 2,
-					circle.getRadius() * 2);
+			g2d.drawOval((int) center.getX(), (int) center.getY(),
+					circle.getRadius() * 2, circle.getRadius() * 2);
 			break;
 		case Line:
 			Line line = (Line) shape;
-			g2d.drawLine(center.getX() + line.getPoint1().getX(), center.getY()
-					+ line.getPoint1().getY(), center.getX()
-					+ line.getPoint2().getX(), center.getY()
-					+ line.getPoint2().getY());
+			g2d.drawLine((int) (center.getX() + line.getPoint1().getX()),
+					(int) (center.getY() + line.getPoint1().getY()),
+					(int) (center.getX() + line.getPoint2().getX()),
+					(int) (center.getY() + line.getPoint2().getY()));
 			break;
 		default:
 			System.err.println("Invalid shape in drawable! Skipped.");
 		}
 	}
-	
+
 	@Override
 	public void draw(Set<Drawable> drawables, Coords origin) {
-		for(Drawable d : drawables) {
+		for (Drawable d : drawables) {
 			draw(d, origin);
 		}
 	}
