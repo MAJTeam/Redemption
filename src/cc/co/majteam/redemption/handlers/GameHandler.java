@@ -8,6 +8,7 @@ import cc.co.majteam.redemption.game.GameState;
 import cc.co.majteam.redemption.graphics.Coords;
 import cc.co.majteam.redemption.graphics.Drawer;
 import cc.co.majteam.redemption.graphics.sprites.Bullet;
+import cc.co.majteam.redemption.graphics.sprites.Direction;
 import cc.co.majteam.redemption.player.Player;
 import cc.co.majteam.redemption.player.PlayerDefaults;
 import cc.co.majteam.redemption.player.input.Input;
@@ -79,19 +80,18 @@ public class GameHandler {
 
 		// Check if any player is trying to do something
 		for (Player p : entityHandler.getPlayers()) {
-			Coords coords = p.getCoords();
 			KeyConfig k = p.getKeyConfig();
-			if (keyboard.keyDown(k.getKey(Input.Up))) {
-				coords.setY(coords.getY() - p.getSpeed());
-			}
 			if (keyboard.keyDown(k.getKey(Input.Down))) {
-				coords.setY(coords.getY() + p.getSpeed());
+				p.getSprite().move(Direction.Down);
 			}
 			if (keyboard.keyDown(k.getKey(Input.Left))) {
-				coords.setX(coords.getX() - p.getSpeed());
+				p.getSprite().move(Direction.Left);
 			}
 			if (keyboard.keyDown(k.getKey(Input.Right))) {
-				coords.setX(coords.getX() + p.getSpeed());
+				p.getSprite().move(Direction.Right);
+			}
+			if (keyboard.keyDown(k.getKey(Input.Up))) {
+				p.getSprite().move(Direction.Up);
 			}
 			if (keyboard.keyDownOnce(k.getKey(Input.Fire))) {
 				entityHandler.addBullets(p.fire());
