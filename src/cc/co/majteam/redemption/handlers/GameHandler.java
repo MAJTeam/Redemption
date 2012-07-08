@@ -7,6 +7,7 @@ import cc.co.majteam.redemption.game.GameConfig;
 import cc.co.majteam.redemption.game.GameState;
 import cc.co.majteam.redemption.graphics.Drawer;
 import cc.co.majteam.redemption.graphics.sprites.PlayerSprite;
+import cc.co.majteam.redemption.player.Player;
 import cc.co.majteam.redemption.player.input.KeyboardInput;
 
 public class GameHandler {
@@ -71,9 +72,9 @@ public class GameHandler {
 		drawer.init();
 		
 		// Draw all players
-		Set<PlayerSprite> players = entityHandler.getPlayers();
-		for(PlayerSprite ps : players) {
-			drawer.draw(ps.getDrawables(), ps.getCenter());
+		Set<Player> players = entityHandler.getPlayers();
+		for(Player p : players) {
+			drawer.draw(p.getSprite().getDrawables(), p.getSprite().getCenter());
 		}
 		
 		drawer.commit();

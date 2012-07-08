@@ -3,8 +3,7 @@ package cc.co.majteam.redemption.handlers;
 import java.util.HashSet;
 import java.util.Set;
 
-import cc.co.majteam.redemption.graphics.sprites.PlayerSprite;
-import cc.co.majteam.redemption.player.PlayerDefaults;
+import cc.co.majteam.redemption.player.Player;
 
 public class EntityHandler {
 	private static EntityHandler instance = new EntityHandler();
@@ -13,17 +12,20 @@ public class EntityHandler {
 		return instance;
 	}
 	
-	private Set<PlayerSprite> players;
+	private Set<Player> players;
 	
 	private EntityHandler() {
-		players = new HashSet<PlayerSprite>();
+		players = new HashSet<Player>();
 	}
 	
 	public void init() {
-		players.add(new PlayerSprite(PlayerDefaults.Player1));
 	}
 	
-	public Set<PlayerSprite> getPlayers() {
+	public Set<Player> getPlayers() {
 		return players;
+	}
+	
+	public boolean addPlayer(Player p) {
+		return players.add(p);
 	}
 }

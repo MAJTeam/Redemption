@@ -2,17 +2,21 @@ package cc.co.majteam.redemption.player;
 
 import java.awt.Color;
 
+import cc.co.majteam.redemption.graphics.sprites.PlayerSprite;
+
 public class Player {
 	private int id;
 	private String name;
 	private Color color;
 	private int score;
+	private PlayerSprite sprite;
 	
 	public Player(int id, PlayerDefaults defaults) {
 		this.id = id;
 		this.name = defaults.getName();
 		this.color = defaults.getColor();
 		this.score = 0;
+		this.sprite = new PlayerSprite(defaults);
 	}
 
 	public int getId() {
@@ -45,5 +49,9 @@ public class Player {
 
 	public void setScore(int score) {
 		this.score = score;
+	}
+
+	public PlayerSprite getSprite() {
+		return sprite;
 	}
 }
