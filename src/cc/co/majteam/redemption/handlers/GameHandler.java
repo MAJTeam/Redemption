@@ -83,16 +83,16 @@ public class GameHandler {
 		for (Player p : entityHandler.getPlayers()) {
 			KeyConfig k = p.getKeyConfig();
 			if (keyboard.keyDown(k.getKey(Input.Up))) {
-				p.getSprite().move(Direction.Up);
+				p.getSprite().move(Direction.North);
 			}
 			if (keyboard.keyDown(k.getKey(Input.Down))) {
-				p.getSprite().move(Direction.Down);
+				p.getSprite().move(Direction.South);
 			}
 			if (keyboard.keyDown(k.getKey(Input.Left))) {
-				p.getSprite().move(Direction.Left);
+				p.getSprite().move(Direction.West);
 			}
 			if (keyboard.keyDown(k.getKey(Input.Right))) {
-				p.getSprite().move(Direction.Right);
+				p.getSprite().move(Direction.East);
 			}
 			if (keyboard.keyDownOnce(k.getKey(Input.Fire))) {
 				entityHandler.addBullets(p.fire());

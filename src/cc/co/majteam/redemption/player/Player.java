@@ -90,17 +90,17 @@ public class Player {
 		Set<Bullet> bullets = new HashSet<Bullet>();
 		Coords c = new Coords(getCoords());
 		switch (sprite.getOrientation()) {
-		case Down:
+		case South:
 			// TODO: Externalize size
 			c.setY(c.getY() + 10);
 			break;
-		case Left:
+		case West:
 			c.setX(c.getX() - 10);
 			break;
-		case Right:
+		case East:
 			c.setX(c.getX() + 10);
 			break;
-		case Up:
+		case North:
 			c.setY(c.getY() - 10);
 			break;
 		}
