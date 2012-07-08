@@ -47,6 +47,7 @@ public class GameHandler {
 		
 		entityHandler.init();
 		entityHandler.addPlayer(new Player(1, PlayerDefaults.Player1));
+		entityHandler.addPlayer(new Player(2, PlayerDefaults.Player2));
 		
 		// Main game loop
 		isRunning = true;
@@ -54,6 +55,10 @@ public class GameHandler {
 			processInput();
 			processLogic();
 			drawScreen();
+			try {
+				Thread.sleep(20);
+			} catch (InterruptedException e) {
+			}
 		}
 		
 		cleanup();
