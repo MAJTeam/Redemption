@@ -8,6 +8,7 @@ import cc.co.majteam.redemption.game.GameState;
 import cc.co.majteam.redemption.graphics.Drawer;
 import cc.co.majteam.redemption.graphics.sprites.PlayerSprite;
 import cc.co.majteam.redemption.player.Player;
+import cc.co.majteam.redemption.player.PlayerDefaults;
 import cc.co.majteam.redemption.player.input.KeyboardInput;
 
 public class GameHandler {
@@ -36,11 +37,14 @@ public class GameHandler {
 	}
 
 	public void start() {
+		// Game start: Prepare everything
 		gameConfig.load();
 		gameState.init();
 		graphicsHandler.init();
 		graphicsHandler.getGameWindow().addKeyListener(keyboard);
+		
 		entityHandler.init();
+		entityHandler.addPlayer(new Player(1, PlayerDefaults.Player1));
 		
 		// Main game loop
 		isRunning = true;
