@@ -12,9 +12,9 @@ public class PlayerSprite extends MovingSprite {
 
 	public PlayerSprite(PlayerDefaults defaults) {
 		// TODO: Change both the Coords and Orientation to get them from PlayerDefaults
-		super(new Coords(5, 5), 5, Direction.Right);
+		super(new Coords(0, 0), 5, Direction.Right);
 		this.color = defaults.getColor();
-		this.addDrawable(new Drawable(this.color, new Circle(10)));
+		this.addDrawable(new Drawable(this.color, new Circle(10), new Coords(-10, -10)));
 	}
 
 	public Color getColor() {
