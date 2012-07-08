@@ -7,6 +7,7 @@ import cc.co.majteam.redemption.game.GameConfig;
 import cc.co.majteam.redemption.game.GameState;
 import cc.co.majteam.redemption.graphics.Coords;
 import cc.co.majteam.redemption.graphics.Drawer;
+import cc.co.majteam.redemption.graphics.sprites.Bullet;
 import cc.co.majteam.redemption.player.Player;
 import cc.co.majteam.redemption.player.PlayerDefaults;
 import cc.co.majteam.redemption.player.input.Input;
@@ -22,12 +23,12 @@ public class GameHandler {
 
 	private GameState gameState;
 	private GameConfig gameConfig;
-	
+
 	private GraphicsHandler graphicsHandler;
 	private EntityHandler entityHandler;
-	
+
 	private KeyboardInput keyboard;
-	
+
 	private boolean isRunning;
 
 	private GameHandler() {
@@ -44,14 +45,14 @@ public class GameHandler {
 		gameState.init();
 		graphicsHandler.init();
 		graphicsHandler.getGameWindow().addKeyListener(keyboard);
-		
+
 		entityHandler.init();
 		entityHandler.addPlayer(new Player(1, PlayerDefaults.Player1));
 		entityHandler.addPlayer(new Player(2, PlayerDefaults.Player2));
-		
+
 		// Main game loop
 		isRunning = true;
-		while(isRunning) {
+		while (isRunning) {
 			processInput();
 			processLogic();
 			drawScreen();
@@ -60,58 +61,68 @@ public class GameHandler {
 			} catch (InterruptedException e) {
 			}
 		}
-		
+
 		cleanup();
 	}
-	
-	private void processInput() {		
+
+	private void processInput() {
 		// Get the latest keyboard state
 		keyboard.poll();
-		
+
 		// Check if the user wants to quit
-		if(keyboard.keyDownOnce(KeyEvent.VK_ESCAPE)) {
+		if (keyboard.keyDownOnce(KeyEvent.VK_ESCAPE)) {
 			isRunning = false;
 			// Yes, this is short-circuiting the whole method.
 			// It's cleaner this way. =P
 			return;
 		}
-		
-		// Check if any player is trying to move
-		for(Player p : entityHandler.getPlayers()) {
+
+		// Check if any player is trying to do something
+		for (Player p : entityHandler.getPlayers()) {
 			Coords coords = p.getCoords();
 			KeyConfig k = p.getKeyConfig();
-			if(keyboard.keyDown(k.getKey(Input.Up))) {
+			if (keyboard.keyDown(k.getKey(Input.Up))) {
 				coords.setY(coords.getY() - p.getSpeed());
 			}
-			if(keyboard.keyDown(k.getKey(Input.Down))) {
+			if (keyboard.keyDown(k.getKey(Input.Down))) {
 				coords.setY(coords.getY() + p.getSpeed());
 			}
-			if(keyboard.keyDown(k.getKey(Input.Left))) {
+			if (keyboard.keyDown(k.getKey(Input.Left))) {
 				coords.setX(coords.getX() - p.getSpeed());
 			}
-			if(keyboard.keyDown(k.getKey(Input.Right))) {
+			if (keyboard.keyDown(k.getKey(Input.Right))) {
 				coords.setX(coords.getX() + p.getSpeed());
+			}
+			if (keyboard.keyDownOnce(k.getKey(Input.Fire))) {
+				entityHandler.addBullets(p.fire());
 			}
 		}
 	}
-	
+
 	private void processLogic() {
-		
+		// Move the bullets
+		for (Bullet b : entityHandler.getBullets()) {
+			
+		}
 	}
-	
+
 	private void drawScreen() {
 		Drawer drawer = graphicsHandler.getDrawer();
 		drawer.init();
-		
+
 		// Draw all players
-		Set<Player> players = entityHandler.getPlayers();
-		for(Player p : players) {
+		for (Player p : entityHandler.getPlayers()) {
 			drawer.draw(p.getSprite().getDrawables(), p.getSprite().getCenter());
 		}
 		
+		// Draw all bullets
+		for(Bullet b : entityHandler.getBullets()) {
+			drawer.draw(b.getDrawables(), b.getCenter());
+		}
+
 		drawer.commit();
 	}
-	
+
 	private void cleanup() {
 		graphicsHandler.cleanup();
 	}
