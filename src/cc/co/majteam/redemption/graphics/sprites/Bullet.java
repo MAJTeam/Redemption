@@ -10,7 +10,7 @@ public class Bullet extends MovingSprite {
 
 	public Bullet(Coords center, int speed, Direction orientation) {
 		super(center, speed, orientation);
-		this.addDrawable(new Drawable(Color.BLUE, new Circle(5)));
+		this.addDrawable(new Drawable(Color.BLUE, new Circle(2), new Coords(-2, -2)));
 	}
 
 }
