@@ -1,7 +1,7 @@
 package cc.co.majteam.redemption.graphics;
 
 public class Coords {
-
+	
 	private int x, y;
 
 	public Coords(int x, int y) {
@@ -28,6 +28,14 @@ public class Coords {
 
 	public void setY(int y) {
 		this.y = y;
+	}
+	
+	public boolean isBetween(Coords p1, Coords p2) {
+		return isBetween(p1.x, p1.y, p2.x, p2.y);
+	}
+	
+	public boolean isBetween(int x1, int y1, int x2, int y2) {
+		return x > x1 && y > y1 && x < x2 && y < y2;
 	}
 	
 	@Override
