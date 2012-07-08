@@ -8,7 +8,7 @@ import cc.co.majteam.redemption.graphics.shapes.Circle;
 
 public class Bullet extends MovingSprite {
 
-	public Bullet(Coords center, int speed, Orientation orientation) {
+	public Bullet(Coords center, int speed, Direction orientation) {
 		super(center, speed, orientation);
 		this.addDrawable(new Drawable(Color.BLUE, new Circle(5)));
 	}
