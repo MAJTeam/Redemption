@@ -89,21 +89,8 @@ public class Player {
 	public Set<Bullet> fire() {
 		Set<Bullet> bullets = new HashSet<Bullet>();
 		Coords c = new Coords(getCoords());
-		switch (sprite.getOrientation()) {
-		case South:
-			// TODO: Externalize size
-			c.setY(c.getY() + 10);
-			break;
-		case West:
-			c.setX(c.getX() - 10);
-			break;
-		case East:
-			c.setX(c.getX() + 10);
-			break;
-		case North:
-			c.setY(c.getY() - 10);
-			break;
-		}
+		// TODO: Externalize Player size
+		c.move(sprite.getOrientation(), 10);
 		bullets.add(new Bullet(this, c, 10, sprite.getOrientation()));
 		return bullets;
 	}

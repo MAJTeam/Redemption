@@ -43,19 +43,6 @@ public abstract class MovingSprite extends Sprite {
 	public void move(Direction direction, int speed) {
 		Coords c = getCenter();
 		this.direction = direction;
-		switch(direction) {
-		case South:
-			c.setY(c.getY() + speed);
-			break;
-		case West:
-			c.setX(c.getX() - speed);
-			break;
-		case East:
-			c.setX(c.getX() + speed);
-			break;
-		case North:
-			c.setY(c.getY() - speed);
-			break;
-		}
+		c.move(direction, speed);
 	}
 }

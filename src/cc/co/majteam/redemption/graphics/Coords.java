@@ -1,5 +1,7 @@
 package cc.co.majteam.redemption.graphics;
 
+import cc.co.majteam.redemption.graphics.sprites.Direction;
+
 public class Coords {
 	
 	private int x, y;
@@ -36,6 +38,42 @@ public class Coords {
 	
 	public boolean isBetween(int x1, int y1, int x2, int y2) {
 		return x > x1 && y > y1 && x < x2 && y < y2;
+	}
+	
+	public void move(Direction direction, int dist) {
+		switch (direction) {
+		case South:
+			y += dist;
+			break;
+		case West:
+			x -= dist;
+			break;
+		case East:
+			x += dist;
+			break;
+		case North:
+			y -= dist;
+			break;
+		case NorthEast:
+			x += dist/2 * Math.sqrt(2);
+			y -= dist/2 * Math.sqrt(2);
+			break;
+		case NorthWest:
+			x -= dist/2 * Math.sqrt(2);
+			y -= dist/2 * Math.sqrt(2);
+			break;
+		case SouthEast:
+			x += dist/2 * Math.sqrt(2);
+			y += dist/2 * Math.sqrt(2);
+			break;
+		case SouthWest:
+			x -= dist/2 * Math.sqrt(2);
+			y += dist/2 * Math.sqrt(2);
+			break;
+		default:
+			System.out.println("Invalid Direction @ Coords.move()");
+			break;
+		}
 	}
 	
 	@Override

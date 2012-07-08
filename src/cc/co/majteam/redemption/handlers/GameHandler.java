@@ -82,17 +82,36 @@ public class GameHandler {
 		// Check if any player is trying to do something
 		for (Player p : entityHandler.getPlayers()) {
 			KeyConfig k = p.getKeyConfig();
+			int x = 0, y = 0;
 			if (keyboard.keyDown(k.getKey(Input.Up))) {
-				p.getSprite().move(Direction.North);
+				y -= 1;
 			}
 			if (keyboard.keyDown(k.getKey(Input.Down))) {
-				p.getSprite().move(Direction.South);
+				y += 1;
 			}
 			if (keyboard.keyDown(k.getKey(Input.Left))) {
-				p.getSprite().move(Direction.West);
+				x -= 1;
 			}
 			if (keyboard.keyDown(k.getKey(Input.Right))) {
+				x += 1;
+			}
+			if (x == 0 && y == 0) {
+			} else if (x == 0 && y < 0) {
+				p.getSprite().move(Direction.North);
+			} else if (x > 0 && y < 0) {
+				p.getSprite().move(Direction.NorthEast);
+			} else if (x > 0 && y == 0) {
 				p.getSprite().move(Direction.East);
+			} else if (x > 0 && y > 0) {
+				p.getSprite().move(Direction.SouthEast);
+			} else if (x == 0 && y > 0) {
+			    p.getSprite().move(Direction.South);
+			} else if (x < 0 && y > 0) {
+				p.getSprite().move(Direction.SouthWest);
+			} else if (x < 0 && y == 0) {
+				p.getSprite().move(Direction.West);
+			} else if (x < 0 && y < 0) {
+				p.getSprite().move(Direction.NorthWest);
 			}
 			if (keyboard.keyDownOnce(k.getKey(Input.Fire))) {
 				entityHandler.addBullets(p.fire());
