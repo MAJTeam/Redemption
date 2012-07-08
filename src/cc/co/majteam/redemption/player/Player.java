@@ -92,16 +92,16 @@ public class Player {
 		switch (sprite.getOrientation()) {
 		case Down:
 			// TODO: Externalize size
-			c.setY(c.getY() + 5);
+			c.setY(c.getY() + 10);
 			break;
 		case Left:
-			c.setX(c.getX() - 5);
+			c.setX(c.getX() - 10);
 			break;
 		case Right:
-			c.setX(c.getX() + 5);
+			c.setX(c.getX() + 10);
 			break;
 		case Up:
-			c.setY(c.getY() - 5);
+			c.setY(c.getY() - 10);
 			break;
 		}
 		bullets.add(new Bullet(c, 10, sprite.getOrientation()));
