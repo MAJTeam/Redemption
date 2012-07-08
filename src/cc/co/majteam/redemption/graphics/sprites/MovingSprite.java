@@ -4,12 +4,12 @@ import cc.co.majteam.redemption.graphics.Coords;
 
 public abstract class MovingSprite extends Sprite {
 	private int speed;
-	private Direction orientation;
+	private Direction direction;
 
 	public MovingSprite(Coords center, int speed, Direction orientation) {
 		super(center);
 		this.speed = speed;
-		this.orientation = orientation;
+		this.direction = orientation;
 	}
 
 	public int getSpeed() {
@@ -21,10 +21,40 @@ public abstract class MovingSprite extends Sprite {
 	}
 
 	public Direction getOrientation() {
-		return orientation;
+		return direction;
 	}
 
 	public void setOrientation(Direction orientation) {
-		this.orientation = orientation;
+		this.direction = orientation;
+	}
+	
+	public void move() {
+		move(direction, speed);
+	}
+	
+	public void move(Direction direction) {
+		move(direction, speed);
+	}
+	
+	public void move(int speed) {
+		move(direction, speed);
+	}
+	
+	public void move(Direction direction, int speed) {
+		Coords c = getCenter();
+		switch(direction) {
+		case Down:
+			c.setY(c.getY() + speed);
+			break;
+		case Left:
+			c.setX(c.getX() - speed);
+			break;
+		case Right:
+			c.setX(c.getX() + speed);
+			break;
+		case Up:
+			c.setY(c.getY() - speed);
+			break;
+		}
 	}
 }
