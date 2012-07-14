@@ -15,7 +15,7 @@ public class GameConfig {
 	public boolean load() {
 		// TODO: Remove hard-coded values and load from ConfigFile instead.
 		this.width = 800;
-		this.height = 600;
+		this.height = 800;
 		
 		return true;
 	}
