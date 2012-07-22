@@ -4,7 +4,11 @@ import cc.co.majteam.redemption.graphics.sprites.Direction;
 
 public class Coords {
 	public static Coords midpoint(Coords p1, Coords p2) {
-		return midpoint((int) p1.x, (int) p1.y, (int) p2.x, (int) p2.y);
+		return midpoint(p1.x, p1.y, p2.x, p2.y);
+	}
+	
+	public static Coords midpoint(double x1, double y1, double x2, double y2) {
+		return midpoint((int) x1, (int) y1, (int) x2, (int) y2);
 	}
 	
 	public static Coords midpoint(int x1, int y1, int x2, int y2) {
